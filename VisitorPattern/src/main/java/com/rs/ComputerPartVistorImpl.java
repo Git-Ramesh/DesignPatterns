@@ -9,6 +9,10 @@ public class ComputerPartVistorImpl implements ComputerPartVisitor {
 	@Override
 	public void visit(Computer computer) {
 		logger.info("Visiting Computer");
+		ComputerPart[] computerParts = computer.getComputerParts();
+		for (ComputerPart computerPart : computerParts) {
+			computerPart.accept(this);
+		}
 	}
 
 	@Override
